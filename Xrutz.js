@@ -343,54 +343,54 @@ module.exports = Xrutz = async (Xrutz, mek) => {
             return Math.floor(Math.random() * angka) + 1
         }
 		const fakethumb = (teks, yes) => {
-          Xrutz.sendMessage(from, teks, image, {thumbnail:fs.readFileSync('./media/masrell.jpg'),quoted:mek,caption:yes})
+            Yutech.sendMessage(from, teks, image, {thumbnail:fs.readFileSync('./media/masrell.jpg'),quoted:mek,caption:yes})
         }
         const reply = (teks) => {
-	      Xrutz.sendMessage(from, teks, text, {quoted:mek, thumbnail: fakeimage})
+	      Yutech.sendMessage(from, teks, text, {quoted:mek, thumbnail: fakeimage})
         }
         const sendMess = (hehe, teks) => {
-           Xrutz.sendMessage(hehe, teks, text)
+           Yutech.sendMessage(hehe, teks, text)
         }
         const replyf = (teks) => {
-            Xrutz.sendMessage(from, teks, text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Xrutz Selfbot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/masrell.jpg'),sourceUrl:"https://wa.me/6283871990243?text=Assalamualaikum"}}})        
+            Yutech.sendMessage(from, teks, text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Xrutz Selfbot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/masrell.jpg'),sourceUrl:"https://wa.me/6283871990243?text=Assalamualaikum"}}})        
 		}
         const mentions = (teks, memberr, id) => {
            (id == null || id == undefined || id == false) ? Xrutz.sendMessage(from, {text: teks.trim(), jpegThumbnail: fs.readFileSync('./media/masrell.jpg')}, extendedText, { sendEphemeral: true, contextInfo: { "mentionedJid": memberr } }) : Xrutz.sendMessage(from, {text: teks.trim(), jpegThumbnail: fs.readFileSync('./media/masrell.jpg')}, extendedText, { sendEphemeral: true, quoted: mek, contextInfo: { "mentionedJid": memberr } })
         }
         const sendText = (from, text) => {
-           Xrutz.sendMessage(from, text, MessageType.text)
+           Yutech.sendMessage(from, text, MessageType.text)
         }
         const textImg = (teks) => {
-           return Xrutz.sendMessage(from, teks, text, {quoted: mek, thumbnail: fs.readFileSync('./media/masrell.jpg')})
+           return Yutech.sendMessage(from, teks, text, {quoted: mek, thumbnail: fs.readFileSync('./media/masrell.jpg')})
         }
        const math = (teks) => {
            return Math.floor(teks)
        }
        const kick = function(from, orangnya){
 	       for (let i of orangnya){
-	       Xrutz.groupRemove(from, [i])
+	      Yutech.groupRemove(from, [i])
         }
         }
 
        const kickMember = async(id, target = []) => {
-           let group = await Xrutz.groupMetadata(id)
+           let group = await Yutech.groupMetadata(id)
            let owner = group.owner.replace("c.us", "s.whatsapp.net")
-           let me = Xrutz.user.jid
+           let me = Yutech.user.jid
            for (i of target) {
            if (!i.includes(me) && !i.includes(owner)) {
-           await Xrutz.groupRemove(to, [i])
+           await Yutech.groupRemove(to, [i])
         } else {
-           await Xrutz.sendMessage(id, "Not Premited!", "conversation")
+           await Yutech.sendMessage(id, "Not Premited!", "conversation")
            break
         }
     }
 }
        const add = function(from, orangnya){
-	       Xrutz.groupAdd(from, orangnya)
+	       Yutech.groupAdd(from, orangnya)
 }
        const sendKontak = (from, nomor, nama, org = "") => {
 	       const vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + nama + '\n' + 'ORG:' + org + '\n' + 'TEL;type=CELL;type=VOICE;waid=' + nomor + ':+' + nomor + '\n' + 'END:VCARD'
-	       Xrutz.sendMessage(from, {displayname: nama, vcard: vcard}, MessageType.contact, {quoted: mek})
+	       Yutech.sendMessage(from, {displayname: nama, vcard: vcard}, MessageType.contact, {quoted: mek})
 }
       const hideTag = async function(from, text){
 	       let anu = await Xrutz.groupMetadata(from)
@@ -399,7 +399,7 @@ module.exports = Xrutz = async (Xrutz, mek) => {
 	       for (let i of members){
 	       ane.push(i.jid)
 }
-	       Xrutz.sendMessage(from, {text:text, jpegThumbnail:fs.readFileSync('media/masrell.jpg')}, 'extendedTextMessage', {contextInfo: {"mentionedJid": ane}})
+	       Yutech.sendMessage(from, {text:text, jpegThumbnail:fs.readFileSync('media/masrell.jpg')}, 'extendedTextMessage', {contextInfo: {"mentionedJid": ane}})
 }  
       const sendWebp = async(to, url) => {
            var names = Date.now() / 10000;
@@ -417,7 +417,7 @@ module.exports = Xrutz = async (Xrutz, mek) => {
            if (err) return reply(`${err}`)
            exec(`webpmux -set exif ./sticker/data.exif ${asw} -o ${asw}`, async (error) => {
            if (error) return reply(`${error}`)
-           Xrutz.sendMessage(from, fs.readFileSync(asw), sticker, {sendEphemeral:true, quoted:mek})
+           Yutech.sendMessage(from, fs.readFileSync(asw), sticker, {sendEphemeral:true, quoted:mek})
            fs.unlinkSync(asw)
 });
 });
@@ -456,8 +456,8 @@ module.exports = Xrutz = async (Xrutz, mek) => {
            hasil = await getBuffer(link)
 	       Xrutz.sendMessage(from, hasil, type, options).catch(e => {
 	       fetch(link).then((hasil) => {
-	       Xrutz.sendMessage(from, hasil, type, options).catch(e => {
-	       Xrutz.sendMessage(from, { url : link }, type, options).catch(e => {
+	       Yutech.sendMessage(from, hasil, type, options).catch(e => {
+	       Yutech.sendMessage(from, { url : link }, type, options).catch(e => {
 	       reply('_[ ! ] Error Gagal Dalam Mendownload Dan Mengirim Media_')
 	       console.log(e)
 })
@@ -467,9 +467,9 @@ module.exports = Xrutz = async (Xrutz, mek) => {
 }
       const promoteAdmin = async function(to, target=[]){
            if(!target.length > 0) { return  reply("No target..") }
-           let g = await Xrutz.groupMetadata(to)
+           let g = await Yutech.groupMetadata(to)
            let owner = g.owner.replace("c.us","s.whatsapp.net")
-           let me = Xrutz.user.jid
+           let me = Yutech.user.jid
            for (i of target){
            if (!i.includes(me) && !i.includes(owner)){
            const res = await Xrutz.groupMakeAdmin(to, [i])
@@ -479,7 +479,7 @@ module.exports = Xrutz = async (Xrutz, mek) => {
 }
       const demoteAdmin = async function(to, target=[]){
            if(!target.length > 0) { return  reply("No target..") }
-           let g = await Xrutz.groupMetadata(to)
+           let g = await Yutech.groupMetadata(to)
            let owner = g.owner.replace("c.us","s.whatsapp.net")
            let me = Xrutz.user.jid
            for (i of target){
@@ -1507,7 +1507,7 @@ futer = `*Pastikan semua format data sudah benar,*
 }
 
                prep = await Xrutz.prepareMessageFromContent(from,{buttonsMessage},{quoted: faketroli})
-               Xrutz.relayWAMessage(prep)
+               Yutech.relayWAMessage(prep)
                break
 
 case 'idml':

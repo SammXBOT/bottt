@@ -1,4 +1,4 @@
-///----------[ BY XRUTZ OFFICIAL ]----------\\\
+///----------[ BY YUTECH JB ]----------\\\
 
 //NOTE :
 //KALO MAU RECODE KASIH CREDIT DEK, HARGAIN PEMBUAT SC
